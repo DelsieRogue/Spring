@@ -7,32 +7,5 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="rockMusicBean"
-            class="ru.mustafin.springcourse.PockMusic">
-    </bean>
-
-    <bean id="classicalMusicBean"
-          class="ru.mustafin.springcourse.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-           >
-    </bean>
-
-    <bean id="jazzMusicBean"
-          class="ru.mustafin.springcourse.JazzMusic">
-    </bean>
-
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
-
-    <bean id="musicPlayer"
-          class="ru.mustafin.springcourse.MusicPlayer"
-            scope="prototype">
-        <property name="musicList">
-            <list>
-                <ref bean="classicalMusicBean"/>
-                <ref bean="jazzMusicBean"/>
-                <ref bean="rockMusicBean"/>
-            </list>
-        </property>
-    </bean>
+    <context:component-scan base-package="ru.mustafin.springcourse"/>
 </beans>

@@ -1,5 +1,5 @@
 package ru.mustafin.springcourse;
 
 public interface Music {
-    void playMusic();
+    void playMusic(int indexMusic);
 }
