@@ -5,28 +5,23 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 @Component
 public class MusicPlayer {
 
-    @Autowired
-    @Qualifier("classicalMusic")
-    private Music music1;
+    List<Music> musics = new LinkedList<>();
 
-    @Autowired
-    @Qualifier("jazzMusic")
-    private Music music2;
+    public MusicPlayer(List<Music> musics) {
+        this.musics = musics;
+    }
 
-
-    public void playMusic(TypeMusic typeMusic) {
+    public void playMusic(){
         Random rand = new Random();
         rand.setSeed(new Date().getTime());
-        if (typeMusic == TypeMusic.CLASSICAL){
-            music1.playMusic(rand.nextInt(3));
-        }
-        else {
-            music2.playMusic(rand.nextInt(3));
-        }
+        musics.get(rand.nextInt(3)).playMusic();
     }
+
 }

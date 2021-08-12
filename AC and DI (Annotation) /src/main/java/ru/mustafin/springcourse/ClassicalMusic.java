@@ -8,11 +8,10 @@ import java.util.List;
 
 @Component
 public class ClassicalMusic implements Music{
-    private List<String> nameMusicList = Arrays.asList("Classical1", "Classical2", "Classical3");
-
+    private String music;
     @Override
-    public void playMusic(int indexMusic) {
-        System.out.println(nameMusicList.get(indexMusic));
+    public void playMusic() {
+        System.out.println("Classical");
     }
 
 }

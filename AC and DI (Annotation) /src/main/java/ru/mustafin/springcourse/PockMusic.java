@@ -4,8 +4,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PockMusic implements Music{
+    private String music;
+
     @Override
-    public void playMusic(int indexMusic) {
-        System.out.println("RockMusic...");
+    public void playMusic() {
+        System.out.println("Rock");
     }
 }
